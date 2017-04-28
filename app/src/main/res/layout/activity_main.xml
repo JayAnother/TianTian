@@ -25,6 +25,12 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/title_home"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/anim_path"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/anim_vertor_path" />
 
     </FrameLayout>
 
