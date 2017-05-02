@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui;
+package jay.love.tiantian.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-import jay.love.tiantian.MainActivity;
+import jay.love.tiantian.ui.home.MainActivity;
 import jay.love.tiantian.R;
 
 public class GuideActivity extends AppCompatActivity implements View.OnClickListener {

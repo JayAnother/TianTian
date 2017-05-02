@@ -1,4 +1,4 @@
-package jay.love.tiantian;
+package jay.love.tiantian.ui.home;
 
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import jay.love.tiantian.R;
 
 public class MainActivity extends AppCompatActivity {
 

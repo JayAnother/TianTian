@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui;
+package jay.love.tiantian.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,15 +7,23 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import jay.love.tiantian.MainActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import jay.love.tiantian.R;
+import jay.love.tiantian.ui.home.MainActivity;
 import jay.love.tiantian.utils.ConstantUtils;
 import jay.love.tiantian.utils.SPUtils;
 import jay.love.tiantian.utils.UtilTools;
+import jay.love.tiantian.widget.heartview.HeartView;
 
 public class SplashActivity extends AppCompatActivity {
 
 
+    public static final int DELAY_MILLIS = 2000;
+    @BindView(R.id.heart)
+    HeartView mHeart;
+    @BindView(R.id.tv_splash)
+    TextView mTvSplash;
     /**
      * 1.延时2000ms
      * 2.判断程序是否第一次运行
@@ -46,9 +54,10 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ButterKnife.bind(this);
 
 //        if (!ConstantUtils.BMOB_APP_ID.isEmpty()) {
-            initView();
+        initView();
 //        } else {
 //            ToastUtils.showLong(getApplicationContext(), "Replace with your BmobSDK appkey.");
 //        }
@@ -59,23 +68,24 @@ public class SplashActivity extends AppCompatActivity {
      */
     private void initView() {
         // 延时2000ms
-        handler.sendEmptyMessageDelayed(ConstantUtils.HANDLER_SPLASH, 2000);
-        tv_splash = (TextView) findViewById(R.id.tv_splash);
+//        handler.sendEmptyMessageDelayed(ConstantUtils.HANDLER_SPLASH, DELAY_MILLIS);
         // 设置字体
-        UtilTools.setFont(this,tv_splash);
+        UtilTools.setFont(this, mTvSplash);
+//        mHeart.reDraw();
     }
 
     /**
      * 判断程序是否第一次运行
+     *
      * @return
      */
     private boolean isFirst() {
-        boolean isFirst = SPUtils.getBoolean(this, ConstantUtils.SHARE_IS_FIRST,true);
-        if(isFirst){
-            SPUtils.putBoolean(this,ConstantUtils.SHARE_IS_FIRST,false);
+        boolean isFirst = SPUtils.getBoolean(this, ConstantUtils.SHARE_IS_FIRST, true);
+        if (isFirst) {
+            SPUtils.putBoolean(this, ConstantUtils.SHARE_IS_FIRST, false);
             // 是第一次运行
             return true;
-        }else {
+        } else {
             return false;
         }
 

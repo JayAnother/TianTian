@@ -5,10 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jay.love.tiantian.ui.SplashActivity">
+    tools:context="jay.love.tiantian.ui.splash.SplashActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <jay.love.tiantian.widget.heartview.HeartView
+            android:id="@+id/heart"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
         <TextView
             style="@style/w_wrap_h_wrap"
             android:layout_marginBottom="30dp"
