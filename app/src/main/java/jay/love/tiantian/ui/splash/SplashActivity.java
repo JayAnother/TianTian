@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 import android.widget.TextView;
+
+import com.common.utils.JViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,11 +18,12 @@ import jay.love.tiantian.utils.ConstantUtils;
 import jay.love.tiantian.utils.SPUtils;
 import jay.love.tiantian.utils.UtilTools;
 import jay.love.tiantian.widget.heartview.HeartView;
+import jay.love.tiantian.widget.heartview.OnDrawHeartListener;
 
 public class SplashActivity extends AppCompatActivity {
 
 
-    public static final int DELAY_MILLIS = 2000;
+    public static final int DELAY_MILLIS = 500;
     @BindView(R.id.heart)
     HeartView mHeart;
     @BindView(R.id.tv_splash)
@@ -53,6 +57,8 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        JViewUtil.setTranslucentStatus(SplashActivity.this);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
 
@@ -67,11 +73,21 @@ public class SplashActivity extends AppCompatActivity {
      * 初始化View
      */
     private void initView() {
-        // 延时2000ms
-//        handler.sendEmptyMessageDelayed(ConstantUtils.HANDLER_SPLASH, DELAY_MILLIS);
         // 设置字体
         UtilTools.setFont(this, mTvSplash);
 //        mHeart.reDraw();
+        mHeart.setOnDrawHeartListener(new OnDrawHeartListener() {
+            @Override
+            public void drawStart() {
+
+            }
+
+            @Override
+            public void drawFinish() {
+                // 延时2000ms
+                handler.sendEmptyMessageDelayed(ConstantUtils.HANDLER_SPLASH, DELAY_MILLIS);
+            }
+        });
     }
 
     /**

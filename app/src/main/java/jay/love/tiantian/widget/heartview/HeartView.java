@@ -125,7 +125,6 @@ public class HeartView extends SurfaceView implements SurfaceHolder.Callback {
         }.start();
     }
 
-
     private Bloom getBloom(float angle) {
 
         Point p = getHeartPoint(angle);
