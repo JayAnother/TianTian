@@ -21,6 +21,7 @@ android {
 }
 
 dependencies {
+    compile project(path: ':baseframework')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -42,5 +43,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     //Android multi theme
     compile 'com.bilibili:magicasakura:0.1.5@aar'
-    compile project(path: ':baseframework')
+    //bottom bar
+    compile 'com.roughike:bottom-bar:2.3.1'
 }
