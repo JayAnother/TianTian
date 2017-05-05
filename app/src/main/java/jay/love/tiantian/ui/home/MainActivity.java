@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -19,9 +18,10 @@ import com.roughike.bottombar.OnTabSelectListener;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import jay.love.tiantian.R;
+import jay.love.tiantian.ui.base.BaseActivity;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -31,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mImageView;
 
     @Override
+    protected MainContract.Presenter getPresenter() {
+        return new MainPresenter();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
         initView();
         initDrawerLayout();
 

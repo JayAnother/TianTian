@@ -7,11 +7,15 @@ import android.app.Application;
  */
 public class App extends Application {
 
-    public static App app;
+    private static App mInstance;
+    static final private Object lock = new Object();
+
     @Override
     public void onCreate() {
-        app = this;
         super.onCreate();
+        synchronized (lock) {
+            mInstance = this;
+        }
 //
 //        // 读取配置文件
 //        ConfigUtils.getInstance().readConfig();
@@ -28,6 +32,10 @@ public class App extends Application {
 //                    .build();
 //            Bmob.initialize(config);
 //        }
+    }
+
+    public static App getInstance() {
+        return mInstance;
     }
 
 }
