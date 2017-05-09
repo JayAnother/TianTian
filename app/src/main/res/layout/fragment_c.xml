@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textSize="400sp"
-        android:text="D"/>
+        android:text="C"/>
 
 </RelativeLayout>

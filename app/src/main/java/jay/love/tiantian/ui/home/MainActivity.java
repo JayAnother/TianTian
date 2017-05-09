@@ -12,7 +12,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.DragEvent;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -73,23 +75,26 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         ButterKnife.bind(this);
         initView();
     }
+
     public void hideAllFragment(FragmentTransaction fragmentTransaction) {
-        if (mAFragment != null && !FRAGMENT_TAG_A.equals( currFragmentTag)) {
+        if (mAFragment != null && !FRAGMENT_TAG_A.equals(currFragmentTag)) {
             fragmentTransaction.hide(mAFragment);
         }
-        if (mBFragment != null && !FRAGMENT_TAG_B.equals( currFragmentTag)) {
+        if (mBFragment != null && !FRAGMENT_TAG_B.equals(currFragmentTag)) {
             fragmentTransaction.hide(mBFragment);
         }
-        if (mCFragment != null && !FRAGMENT_TAG_C.equals( currFragmentTag)) {
+        if (mCFragment != null && !FRAGMENT_TAG_C.equals(currFragmentTag)) {
             fragmentTransaction.hide(mCFragment);
         }
-        if (mDFragment != null && !FRAGMENT_TAG_D.equals( currFragmentTag) ) {
+        if (mDFragment != null && !FRAGMENT_TAG_D.equals(currFragmentTag)) {
             fragmentTransaction.hide(mDFragment);
         }
     }
+
     public String getCurrentFragmentTag() {
         return currFragmentTag;
     }
+
     public void switchFragment(String fragmentTag, int animType) {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -156,7 +161,6 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                             dialogInterface.dismiss();
                         }
                     });
-            super.onBackPressed();
         }
     }
 
@@ -164,6 +168,13 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, getToolbar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.syncState();
+        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_menu_white_24dp));
+        mDrawerLayout.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                return false;
+            }
+        });
         mNavView.setNavigationItemSelectedListener(this);
 
         mTextMessage = (TextView) findViewById(R.id.message);
@@ -177,18 +188,18 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
             @Override
             public void onTabSelected(@IdRes int tabId) {
                 mTextMessage.setText(TabMessage.get(tabId, false));
-                switch (tabId){
+                switch (tabId) {
                     case R.id.tab_favorites:
-                        switchFragment(FRAGMENT_TAG_A,AnimationUtil.TYPE_PAGE_NONE);
+                        switchFragment(FRAGMENT_TAG_A, AnimationUtil.TYPE_PAGE_NONE);
                         break;
                     case R.id.tab_recents:
-                        switchFragment(FRAGMENT_TAG_B,AnimationUtil.TYPE_PAGE_NONE);
+                        switchFragment(FRAGMENT_TAG_B, AnimationUtil.TYPE_PAGE_NONE);
                         break;
                     case R.id.tab_friends:
-                        switchFragment(FRAGMENT_TAG_C,AnimationUtil.TYPE_PAGE_NONE);
+                        switchFragment(FRAGMENT_TAG_C, AnimationUtil.TYPE_PAGE_NONE);
                         break;
                     case R.id.tab_nearby:
-                        switchFragment(FRAGMENT_TAG_D,AnimationUtil.TYPE_PAGE_NONE);
+                        switchFragment(FRAGMENT_TAG_D, AnimationUtil.TYPE_PAGE_NONE);
                         break;
                 }
             }

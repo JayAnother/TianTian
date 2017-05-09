@@ -62,7 +62,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             indicator.setColor(Color.WHITE);
             getSupportActionBar().setHomeAsUpIndicator(indicator);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_menu_white_24dp));
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
             //JViewUtil.setStatuBarColorId(this,R.color.transparent_status);
         }
     }
