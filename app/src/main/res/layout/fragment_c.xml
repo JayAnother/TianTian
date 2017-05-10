@@ -1,15 +1,35 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="jay.love.tiantian.ui.a.AFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal"
+              tools:context="jay.love.tiantian.ui.a.AFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textSize="400sp"
-        android:text="C"/>
+        android:text="C"
+        android:textSize="200sp"/>
+    <Button
+        android:id="@+id/btn01"
+        android:text="Game01"
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn02"
+        android:text="Game02"
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+
+
+</LinearLayout>

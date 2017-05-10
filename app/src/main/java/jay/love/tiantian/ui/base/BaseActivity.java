@@ -1,13 +1,19 @@
 package jay.love.tiantian.ui.base;
 
+import android.app.Activity;
 import android.app.Dialog;
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.common.utils.DialogUtils;
 import com.common.utils.LogUtils;
@@ -58,18 +64,72 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
-            final DrawerArrowDrawable indicator = new DrawerArrowDrawable(this);
-            indicator.setColor(Color.WHITE);
-            getSupportActionBar().setHomeAsUpIndicator(indicator);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
             //JViewUtil.setStatuBarColorId(this,R.color.transparent_status);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //所有activity退出都是左进右出
+        overridePendingTransition(R.anim.return_slide_in_left, R.anim.return_slide_out_right);
+    }
+
     public Toolbar getToolbar() {
         return mToolbar;
     }
 
+    public void setTitle(CharSequence title) {
+        if (TextUtils.isEmpty(title)) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);//默认标题栏不可用
+            getToolbar().findViewById(R.id.tv_toolbar_title).setVisibility(View.GONE);
+        } else {
+            //默认title
+//            getToolbar().setTitle(title);
+//            getToolbar().setTitleTextColor(JToolUtil.getColor(R.color.black221e1f));
+            TextView tvTitle = (TextView) getToolbar().findViewById(R.id.tv_toolbar_title);
+            tvTitle.setVisibility(View.VISIBLE);
+            tvTitle.setText(title);
+        }
+    }
+
+    public void setLeftMenu(int icon, View.OnClickListener onClickListener) {
+        ImageButton imageButton = (ImageButton) getToolbar().findViewById(R.id.button_left_menu);
+        imageButton.setImageDrawable(ContextCompat.getDrawable(this, icon));
+        if (onClickListener != null) {
+            imageButton.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void startNextActivity(Activity activity, Fragment fragemnt, Bundle bundle, Class<?> pClass) {
+        Intent intent = new Intent(activity, pClass);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        if (fragemnt != null) {
+            fragemnt.startActivity(intent);
+        } else {
+            activity.startActivity(intent);
+        }
+        overridePendingTransition(R.anim.slide_in_right,
+                R.anim.slide_out_left);
+    }
+
+    public void startNextActivityForResult(Activity activity, Fragment fragemnt, Bundle bundle, Class<?> pClass, int requestCode) {
+        Intent intent = new Intent(activity, pClass);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        if (fragemnt != null) {
+            fragemnt.startActivityForResult(intent, requestCode);
+        } else {
+            activity.startActivityForResult(intent, requestCode);
+        }
+
+        overridePendingTransition(R.anim.slide_in_right,
+                R.anim.slide_out_left);
+
+    }
 
     @Override
     protected void onDestroy() {

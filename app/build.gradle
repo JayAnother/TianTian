@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "jay.love.tiantian"
-        minSdkVersion 16
+        minSdkVersion 20
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -48,4 +48,5 @@ dependencies {
     compile 'com.rom4ek:arcnavigationview:1.0.3'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

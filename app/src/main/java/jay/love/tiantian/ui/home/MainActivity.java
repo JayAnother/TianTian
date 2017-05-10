@@ -1,6 +1,7 @@
 package jay.love.tiantian.ui.home;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -11,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.Toolbar;
 import android.view.DragEvent;
 import android.view.MenuItem;
@@ -32,8 +34,8 @@ import jay.love.tiantian.R;
 import jay.love.tiantian.ui.a.AFragment;
 import jay.love.tiantian.ui.b.BFragment;
 import jay.love.tiantian.ui.base.BaseActivity;
-import jay.love.tiantian.ui.c.CFragment;
 import jay.love.tiantian.ui.d.DFragment;
+import jay.love.tiantian.ui.game.GameListFragment;
 import jay.love.tiantian.utils.AnimationUtil;
 
 
@@ -74,6 +76,15 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initView();
+        initToolbar();
+    }
+
+    private void initToolbar() {
+        final DrawerArrowDrawable indicator = new DrawerArrowDrawable(this);
+        indicator.setColor(Color.WHITE);
+        getSupportActionBar().setHomeAsUpIndicator(indicator);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     public void hideAllFragment(FragmentTransaction fragmentTransaction) {
@@ -120,7 +131,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
                 break;
             case FRAGMENT_TAG_C:
                 if (mCFragment == null) {
-                    mCFragment = CFragment.newInstance();
+                    mCFragment = GameListFragment.newInstance();
                 }
                 fragment = mCFragment;
                 break;

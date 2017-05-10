@@ -1,21 +1,33 @@
 package jay.love.tiantian.application;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import jay.love.tiantian.GlobalData;
+import jay.love.tiantian.ui.game.dish.DishManager;
 
 /**
- * Created by gc on 2017/1/16.
+ * Created by jay on 2017/1/16.
  */
 public class App extends Application {
 
     private static App mInstance;
     static final private Object lock = new Object();
+    private static DishManager dm;
+    private static int level = 4;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
-        synchronized (lock) {
-            mInstance = this;
-        }
+
+//        synchronized (lock) {
+        if (mInstance == null) mInstance = (App) getApplicationContext();
+//        }
+
+        SharedPreferences pref = getSharedPreferences(GlobalData.SP_NAME, MODE_PRIVATE);
+        setLevel(pref.getInt(GlobalData.SP_LEVEL, 4));
 //
 //        // 读取配置文件
 //        ConfigUtils.getInstance().readConfig();
@@ -34,8 +46,24 @@ public class App extends Application {
 //        }
     }
 
-    public static App getInstance() {
-        return mInstance;
+    public static Context getInstance() {
+        if (mInstance != null) {
+            return mInstance;
+        }
+        return null;
     }
 
+    public static int getLevel() {
+        return level;
+    }
+
+    public static void setLevel(int level) {
+        if (level < 3) return;
+        App.level = level;
+        dm = new DishManager(level);
+    }
+
+    public static DishManager getDishManager() {
+        return dm;
+    }
 }

@@ -7,4 +7,6 @@ package jay.love.tiantian;
 public class GlobalData {
     public static String serviceRequestUrl;
     public static boolean DEBUG=true;
+    public static final String SP_NAME = "puzzle_sp";
+    public static final String SP_LEVEL = "level";
 }
