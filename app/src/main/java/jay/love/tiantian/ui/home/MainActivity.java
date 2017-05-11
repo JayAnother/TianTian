@@ -2,7 +2,6 @@ package jay.love.tiantian.ui.home;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -18,8 +17,6 @@ import android.view.DragEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.utils.DialogUtils;
@@ -52,8 +49,6 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     DrawerLayout mDrawerLayout;
     @BindView(R.id.fl_container)
     FrameLayout mFlContainer;
-    private TextView mTextMessage;
-    private ImageView mImageView;
 
     private Fragment mAFragment;
     private Fragment mBFragment;
@@ -188,17 +183,11 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         });
         mNavView.setNavigationItemSelectedListener(this);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        //vector animation view
-        mImageView = (ImageView) findViewById(R.id.anim_path);
-        if (mImageView.getDrawable() instanceof Animatable) {
-            ((Animatable) mImageView.getDrawable()).start();
-        }
         //bottom bar
         mBottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
-                mTextMessage.setText(TabMessage.get(tabId, false));
+//                mTextMessage.setText(TabMessage.get(tabId, false));
                 switch (tabId) {
                     case R.id.tab_favorites:
                         switchFragment(FRAGMENT_TAG_A, AnimationUtil.TYPE_PAGE_NONE);

@@ -41,7 +41,7 @@ import jay.love.tiantian.utils.BitmapUtils;
 import jay.love.tiantian.utils.DensityUtil;
 import jay.love.tiantian.utils.GameTimer;
 import jay.love.tiantian.utils.GlobalUtils;
-import service.MusicServer;
+import jay.love.tiantian.service.MusicServer;
 
 public class ComplexGameActivity extends AppCompatActivity {
     private static final String TAG = "jay";
