@@ -56,6 +56,8 @@
         </activity>
         <activity android:name=".ui.game.ComplexGameActivity">
         </activity>
+        <activity android:name=".ui.b.TuringChatActivity">
+        </activity>
     </application>
 
 </manifest>

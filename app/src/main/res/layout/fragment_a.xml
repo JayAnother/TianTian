@@ -1,15 +1,58 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="jay.love.tiantian.ui.a.AFragment">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                tools:context="jay.love.tiantian.ui.a.AFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="400sp"
-        android:text="A"/>
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="com.moxun.tagcloud.MainActivity">
+
+        <com.moxun.tagcloudlib.view.TagCloudView
+            android:id="@+id/tag_cloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:autoScrollMode="uniform"
+            app:darkColor="@color/tagDark"
+            app:lightColor="@color/tagLight"
+            app:radiusPercent="0.6"
+            app:scrollSpeed="3"/>
+
+        <Button
+            android:id="@+id/tag_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple Text Tag"/>
+
+        <Button
+            android:id="@+id/tag_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custom View Tag"/>
+
+        <Button
+            android:id="@+id/tag_vector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VectorDrawable Tag"/>
+
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#aaaaaa"
+        android:clipToPadding="true"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:requiresFadingEdge="none"
+        android:scrollbars="vertical"/>
 
 </RelativeLayout>

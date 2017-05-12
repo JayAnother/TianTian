@@ -2,10 +2,12 @@ package jay.love.tiantian.data;
 
 
 import jay.love.tiantian.data.preferces.PreferHelper;
+import jay.love.tiantian.data.retrofit.service.TuringApi;
 
 public class DataManager {
     private static  volatile  DataManager dataManager;
     private PreferHelper preferHelper;
+    private TuringApi mTuringApi;
     private static final Object lock = new Object();
     private DataManager(){
     }
@@ -30,13 +32,13 @@ public class DataManager {
         return preferHelper;
     }
 
-//    public MemberApi  getMemberApi(){
-//        if(memberApi==null){
+//    public TuringApi getTuringApi(){
+//        if(mTuringApi==null){
 //            synchronized (DataManager.class){
-//                memberApi= RetrofitHelper.getDefaultRetrofit().create(MemberApi.class);
+//                mTuringApi= RetrofitHelper.getDefaultRetrofit().create(mTuringApi.class);
 //            }
 //        }
-//        return memberApi;
+//        return mTuringApi;
 //    }
 
 
