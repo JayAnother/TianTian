@@ -1,6 +1,7 @@
 package jay.love.tiantian.data.retrofit.service;
 
 import jay.love.tiantian.ui.b.model.MessageEntity;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -12,11 +13,11 @@ import rx.Observable;
 public interface TuringApi {
 
     // 请求图灵API接口，获得问答信息
-//    @GET("api")
-//    Call<MessageEntity> getTuringInfo(@Query("key") String key, @Query("info") String info);
+    @GET("openapi/api")
+    Call<MessageEntity> getTuringInfo0(@Query("key") String key, @Query("info") String info);
 
     // 请求图灵API接口，获得问答信息
-    @GET("api")
+    @GET("openapi/api")
     Observable<MessageEntity> getTuringInfo(@Query("key") String key, @Query("info") String info);
 
 }

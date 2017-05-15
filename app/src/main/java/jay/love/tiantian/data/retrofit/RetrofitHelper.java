@@ -27,6 +27,17 @@ public class RetrofitHelper {
 
         return retrofit;
     }
+    public static Retrofit getTuringRetrofit(){
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(GlobalData.TURING_URL)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit;
+    }
+
     private static OkHttpClient getOkHttpClient(){
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (GlobalData.DEBUG) {

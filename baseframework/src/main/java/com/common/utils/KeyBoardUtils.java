@@ -21,6 +21,15 @@ public class KeyBoardUtils {
                 edittext.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
+    // 收起软键盘
+    public static boolean hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
+            return true;
+        }
+        return false;
+    }
     public static void hideKeybord(Activity activity) {
         try {
             if(activity!=null) {

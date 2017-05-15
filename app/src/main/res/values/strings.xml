@@ -27,5 +27,12 @@
     <string name="setting_level_6">6 X 6</string>
     <string name="setting_share">我最近在玩 拼图 觉得不错，推荐你也下载来玩一下~</string>
 
+    <string name="just_now">刚刚</string>
+    <string name="minuites_ago">分钟前</string>
+    <string name="hours_ago">小时前</string>
+    <string name="yestoday">昨天</string>
+    <string name="the_day_before_yestoday">前天</string>
+    <string name="days_ago">天前</string>
+
 
 </resources>

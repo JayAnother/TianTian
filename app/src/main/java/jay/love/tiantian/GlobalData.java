@@ -9,7 +9,7 @@ public class GlobalData {
     public static boolean DEBUG=true;
     public static final String SP_NAME = "puzzle_sp";
     public static final String SP_LEVEL = "level";
-    public static final String TURING_URL = "http://www.tuling123.com/openapi/";
+    public static final String TURING_URL = "http://www.tuling123.com/";
     public static  final String TURING_KEY = "abccedfcf53e4c9a933f82b27c1f5b78";
     public static class TuringCode {
         public static final int TEXT = 100000;//文本类数据

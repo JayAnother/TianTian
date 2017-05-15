@@ -2,6 +2,7 @@ package jay.love.tiantian.data;
 
 
 import jay.love.tiantian.data.preferces.PreferHelper;
+import jay.love.tiantian.data.retrofit.RetrofitHelper;
 import jay.love.tiantian.data.retrofit.service.TuringApi;
 
 public class DataManager {
@@ -32,14 +33,14 @@ public class DataManager {
         return preferHelper;
     }
 
-//    public TuringApi getTuringApi(){
-//        if(mTuringApi==null){
-//            synchronized (DataManager.class){
-//                mTuringApi= RetrofitHelper.getDefaultRetrofit().create(mTuringApi.class);
-//            }
-//        }
-//        return mTuringApi;
-//    }
+    public TuringApi getTuringApi(){
+        if(mTuringApi==null){
+            synchronized (DataManager.class){
+                mTuringApi= RetrofitHelper.getTuringRetrofit().create(TuringApi.class);
+            }
+        }
+        return mTuringApi;
+    }
 
 
 }
