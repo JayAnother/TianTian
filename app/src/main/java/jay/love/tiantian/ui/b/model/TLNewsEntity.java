@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by sunfusheng on 2015/2/4.
  */
-public class NewsEntity implements Serializable {
+public class TLNewsEntity implements Serializable {
 
     private String article;
     private String source;

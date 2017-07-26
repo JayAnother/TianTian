@@ -52,7 +52,8 @@ dependencies {
     compile 'com.moxun:tagcloudlib:1.2.0'
     compile 'de.hdodenhof:circleimageview:2.0.0'
     compile 'com.lguipeng.bubbleview:library:1.0.0'
+    compile 'com.github.Aspsine:IRecyclerView:0.0.5'
+    compile 'com.jude:easyrecyclerview:4.2.3'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'com.github.Aspsine:IRecyclerView:0.0.5'
 }

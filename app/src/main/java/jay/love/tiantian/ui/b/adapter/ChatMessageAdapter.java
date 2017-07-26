@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.b;
+package jay.love.tiantian.ui.b.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -11,18 +11,18 @@ import java.util.List;
 
 import jay.love.tiantian.GlobalData;
 import jay.love.tiantian.R;
-import jay.love.tiantian.ui.b.model.MessageEntity;
+import jay.love.tiantian.ui.b.model.TLMessageEntity;
 import jay.love.tiantian.utils.SpecialViewUtil;
 import jay.love.tiantian.utils.TimeUtil;
 
-public class ChatMessageAdapter extends BaseListAdapter<MessageEntity> {
+public class ChatMessageAdapter extends TLBaseListAdapter<TLMessageEntity> {
 
     private Context mContext;
 
     public static final int TYPE_LEFT = 0;
     public static final int TYPE_RIGHT = 1;
 
-    public ChatMessageAdapter(Context context, List<MessageEntity> list) {
+    public ChatMessageAdapter(Context context, List<TLMessageEntity> list) {
         super(context, list);
         mContext = context;
     }
@@ -53,7 +53,7 @@ public class ChatMessageAdapter extends BaseListAdapter<MessageEntity> {
             convertView = createViewByType(position);
         }
 
-        final MessageEntity entity = getItem(position);
+        final TLMessageEntity entity = getItem(position);
 
         TextView tvTime = ViewHolder.get(convertView, R.id.tv_time);
         BubbleTextVew btvMessage = ViewHolder.get(convertView, R.id.btv_message);
@@ -99,7 +99,7 @@ public class ChatMessageAdapter extends BaseListAdapter<MessageEntity> {
         });
         return convertView;
     }
-    public static void gotoNewsActivity(Context context, MessageEntity messageEntity) {
+    public static void gotoNewsActivity(Context context, TLMessageEntity messageEntity) {
 //        Intent intent = new Intent(context, NewsActivity.class);
 //        intent.putExtra("messageEntity", messageEntity);
 //        context.startActivity(intent);
@@ -125,7 +125,7 @@ public class ChatMessageAdapter extends BaseListAdapter<MessageEntity> {
         }
     }
 
-    private void copyDeleteDialog(final Context context, final MessageEntity entity) {
+    private void copyDeleteDialog(final Context context, final TLMessageEntity entity) {
 //        new MaterialDialog.Builder(context)
 //                .items("复制该文本", "删除这一条")
 //                .itemsCallback(new MaterialDialog.ListCallback() {

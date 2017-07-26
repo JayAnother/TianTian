@@ -2,13 +2,13 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/t_01"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 tools:context="jay.love.tiantian.ui.a.AFragment">
     <com.aspsine.irecyclerview.IRecyclerView
         android:id="@+id/main_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#aaaaaa"
         android:clipToPadding="true"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"

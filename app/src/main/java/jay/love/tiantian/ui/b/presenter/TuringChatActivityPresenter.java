@@ -5,7 +5,7 @@ import java.util.HashMap;
 import jay.love.tiantian.GlobalData;
 import jay.love.tiantian.data.DataManager;
 import jay.love.tiantian.ui.b.contact.TuringChatActivityContact;
-import jay.love.tiantian.ui.b.model.MessageEntity;
+import jay.love.tiantian.ui.b.model.TLMessageEntity;
 import jay.love.tiantian.ui.base.RxPresenter;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -40,11 +40,10 @@ public class TuringChatActivityPresenter extends RxPresenter<TuringChatActivityC
     public void getTuringMessage(String info){
         HashMap<String,String> map=new HashMap<>();
         map.put("","");
-        //不分页,只显示前200位成员
        DataManager.getInstance().getTuringApi().getTuringInfo(GlobalData.TURING_KEY, info)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<MessageEntity>() {
+                .subscribe(new Subscriber<TLMessageEntity>() {
                     @Override
                     public void onCompleted() {
 
@@ -56,7 +55,7 @@ public class TuringChatActivityPresenter extends RxPresenter<TuringChatActivityC
                     }
 
                     @Override
-                    public void onNext(MessageEntity entity) {
+                    public void onNext(TLMessageEntity entity) {
                         mView.requestSuccess(entity);
                     }
                 });

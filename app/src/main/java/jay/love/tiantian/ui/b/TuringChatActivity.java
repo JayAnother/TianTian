@@ -16,8 +16,9 @@ import butterknife.OnClick;
 import jay.love.tiantian.GlobalData;
 import jay.love.tiantian.R;
 import jay.love.tiantian.data.retrofit.service.TuringApi;
+import jay.love.tiantian.ui.b.adapter.ChatMessageAdapter;
 import jay.love.tiantian.ui.b.contact.TuringChatActivityContact;
-import jay.love.tiantian.ui.b.model.MessageEntity;
+import jay.love.tiantian.ui.b.model.TLMessageEntity;
 import jay.love.tiantian.ui.b.presenter.TuringChatActivityPresenter;
 import jay.love.tiantian.ui.base.BaseActivity;
 import jay.love.tiantian.utils.TimeUtil;
@@ -39,7 +40,7 @@ public class TuringChatActivity extends BaseActivity<TuringChatActivityContact.P
     ImageView mIvSendMsg;
     @BindView(R.id.et_msg)
     EditText mEtMsg;
-    private List<MessageEntity> msgList = new ArrayList<>();
+    private List<TLMessageEntity> msgList = new ArrayList<>();
     private ChatMessageAdapter msgAdapter;
     private String mCacheMsg;
 
@@ -68,18 +69,18 @@ public class TuringChatActivity extends BaseActivity<TuringChatActivityContact.P
     }
 
     private void initListener() {
-        mLvMessage.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//        mLvMessage.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
 //                KeyBoardUtils.hideKeyboard(TuringChatActivity.this);
-            }
-        });
+//            }
+//        });
     }
 
     private void initData() {
         if (msgList.size() == 0) {
-            MessageEntity entity = new MessageEntity(ChatMessageAdapter.TYPE_LEFT, TimeUtil.getCurrentTimeMillis());
-            entity.setText("你好！俺是图灵机器人！\n咱俩聊点什么呢？\n你有什么要问的么？");
+            TLMessageEntity entity = new TLMessageEntity(ChatMessageAdapter.TYPE_LEFT, TimeUtil.getCurrentTimeMillis());
+            entity.setText("你好！我是JAY！\n咱俩聊点什么呢？\n你有什么要问的么？");
             msgList.add(entity);
         }
         msgAdapter = new ChatMessageAdapter(this, msgList);
@@ -100,7 +101,7 @@ public class TuringChatActivity extends BaseActivity<TuringChatActivityContact.P
         api.getTuringInfo(GlobalData.TURING_KEY, info)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<MessageEntity>() {
+                .subscribe(new Subscriber<TLMessageEntity>() {
                     @Override
                     public void onCompleted() {
 
@@ -112,7 +113,7 @@ public class TuringChatActivity extends BaseActivity<TuringChatActivityContact.P
                     }
 
                     @Override
-                    public void onNext(MessageEntity entity) {
+                    public void onNext(TLMessageEntity entity) {
                         handleResponseMessage(entity);
                     }
                 });
@@ -126,22 +127,22 @@ public class TuringChatActivity extends BaseActivity<TuringChatActivityContact.P
 
         TuringApi api = retrofit.create(TuringApi.class);
 
-        Call<MessageEntity> call = api.getTuringInfo0(GlobalData.TURING_KEY, info);
-        call.enqueue(new Callback<MessageEntity>() {
+        Call<TLMessageEntity> call = api.getTuringInfo0(GlobalData.TURING_KEY, info);
+        call.enqueue(new Callback<TLMessageEntity>() {
             @Override
-            public void onResponse(Call<MessageEntity> call, Response<MessageEntity> response) {
+            public void onResponse(Call<TLMessageEntity> call, Response<TLMessageEntity> response) {
                 handleResponseMessage(response.body());
             }
 
             @Override
-            public void onFailure(Call<MessageEntity> call, Throwable t) {
+            public void onFailure(Call<TLMessageEntity> call, Throwable t) {
 
             }
         });
     }
 
     // 处理获得到的问答信息
-    private void handleResponseMessage(MessageEntity entity) {
+    private void handleResponseMessage(TLMessageEntity entity) {
         if (entity == null) return;
 
         entity.setTime(TimeUtil.getCurrentTimeMillis());
@@ -172,7 +173,7 @@ public class TuringChatActivity extends BaseActivity<TuringChatActivityContact.P
         String msg = mEtMsg.getText().toString().trim();
 
         if (!TextUtils.isEmpty(msg)) {
-            MessageEntity entity = new MessageEntity(ChatMessageAdapter.TYPE_RIGHT, TimeUtil.getCurrentTimeMillis(), msg);
+            TLMessageEntity entity = new TLMessageEntity(ChatMessageAdapter.TYPE_RIGHT, TimeUtil.getCurrentTimeMillis(), msg);
             msgList.add(entity);
             msgAdapter.notifyDataSetChanged();
             mCacheMsg = msg;
@@ -193,7 +194,7 @@ public class TuringChatActivity extends BaseActivity<TuringChatActivityContact.P
     }
 
     @Override
-    public void requestSuccess(MessageEntity entity) {
+    public void requestSuccess(TLMessageEntity entity) {
         handleResponseMessage(entity);
     }
 }

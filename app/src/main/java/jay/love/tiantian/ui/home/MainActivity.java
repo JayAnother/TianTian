@@ -17,7 +17,6 @@ import android.view.DragEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.common.utils.DialogUtils;
 import com.rom4ek.arcnavigationview.ArcNavigationView;
@@ -208,7 +207,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         mBottomBar.setOnTabReselectListener(new OnTabReselectListener() {
             @Override
             public void onTabReSelected(@IdRes int tabId) {
-                Toast.makeText(getApplicationContext(), TabMessage.get(tabId, true), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), TabMessage.get(tabId, true), Toast.LENGTH_LONG).show();
             }
         });
     }

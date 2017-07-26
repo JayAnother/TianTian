@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.b;
+package jay.love.tiantian.ui.b.adapter;
 
 import android.util.SparseArray;
 import android.view.View;

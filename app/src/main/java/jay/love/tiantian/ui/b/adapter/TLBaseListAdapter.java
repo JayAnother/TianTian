@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.b;
+package jay.love.tiantian.ui.b.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,18 +7,18 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseListAdapter<E> extends BaseAdapter {
+public abstract class TLBaseListAdapter<E> extends BaseAdapter {
 
     private List<E> mList = new ArrayList<E>();
     protected Context mContext;
     protected LayoutInflater mInflater;
 
-    public BaseListAdapter(Context context) {
+    public TLBaseListAdapter(Context context) {
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
     }
 
-    public BaseListAdapter(Context context, List<E> list) {
+    public TLBaseListAdapter(Context context, List<E> list) {
         this(context);
         mList = list;
     }

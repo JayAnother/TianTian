@@ -3,35 +3,35 @@ package jay.love.tiantian.ui.b.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class MessageEntity implements Serializable {
+public class TLMessageEntity implements Serializable {
 
     private int type;
     private long time;
     private int code;
     private String text;
     private String url;
-    private List<NewsEntity> list;
+    private List<TLNewsEntity> list;
 
-    public MessageEntity() {
+    public TLMessageEntity() {
     }
 
-    public MessageEntity(int type, long time) {
+    public TLMessageEntity(int type, long time) {
         this.type = type;
         this.time = time;
         this.text = text;
     }
 
-    public MessageEntity(int type, long time, String text) {
+    public TLMessageEntity(int type, long time, String text) {
         this.type = type;
         this.time = time;
         this.text = text;
     }
 
-    public List<NewsEntity> getList() {
+    public List<TLNewsEntity> getList() {
         return list;
     }
 
-    public void setList(List<NewsEntity> list) {
+    public void setList(List<TLNewsEntity> list) {
         this.list = list;
     }
 

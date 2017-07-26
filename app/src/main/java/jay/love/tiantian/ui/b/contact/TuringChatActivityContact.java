@@ -1,6 +1,6 @@
 package jay.love.tiantian.ui.b.contact;
 
-import jay.love.tiantian.ui.b.model.MessageEntity;
+import jay.love.tiantian.ui.b.model.TLMessageEntity;
 import jay.love.tiantian.ui.base.BasePresenter;
 import jay.love.tiantian.ui.base.BaseView;
 
@@ -11,7 +11,7 @@ import jay.love.tiantian.ui.base.BaseView;
 public class TuringChatActivityContact {
     public interface  View extends BaseView {
 
-        void requestSuccess(MessageEntity entity);
+        void requestSuccess(TLMessageEntity entity);
 
     }
     public interface Presenter extends BasePresenter<View> {
