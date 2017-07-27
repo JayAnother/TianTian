@@ -4,6 +4,7 @@ package jay.love.tiantian.ui.d;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,9 +24,11 @@ import jay.love.tiantian.ui.d.model.TimeLineModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DFragment extends Fragment {
+public class DFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
+    @BindView(R.id.swipe_container)
+    SwipeRefreshLayout mSwipeContainer;
     private TimeLineAdapter mTimeLineAdapter;
     private List<TimeLineModel> mDataList = new ArrayList<>();
     private Orientation mOrientation;
@@ -55,6 +58,7 @@ public class DFragment extends Fragment {
     }
 
     private void initView() {
+        mSwipeContainer.setOnRefreshListener(this);
         mRecyclerView.setLayoutManager(getLinearLayoutManager());
         mRecyclerView.setHasFixedSize(true);
         setDataListItems();
@@ -82,5 +86,16 @@ public class DFragment extends Fragment {
 
     public static Fragment newInstance() {
         return new DFragment();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onRefresh() {
+        mSwipeContainer.setRefreshing(true);
+        mSwipeContainer.setRefreshing(false);
     }
 }

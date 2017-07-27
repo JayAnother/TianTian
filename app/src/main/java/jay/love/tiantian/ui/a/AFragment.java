@@ -3,11 +3,11 @@ package jay.love.tiantian.ui.a;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.aspsine.irecyclerview.IRecyclerView;
@@ -24,14 +24,13 @@ import jay.love.tiantian.listener.OnItemClickListener;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AFragment extends Fragment implements View.OnClickListener {
+public class AFragment extends Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.main_view)
     IRecyclerView mRecyclerView;
     TagCloudView mTagCloud;
-    Button mTagText;
-    Button mTagView;
-    Button mTagVector;
+    @BindView(R.id.swipe_container)
+    SwipeRefreshLayout mSwipeContainer;
     private TextTagsAdapter textTagsAdapter;
     private ViewTagsAdapter viewTagsAdapter;
     private VectorTagsAdapter vectorTagsAdapter;
@@ -52,6 +51,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
+        mSwipeContainer.setOnRefreshListener(this);
         textTagsAdapter = new TextTagsAdapter(new String[20]);
         viewTagsAdapter = new ViewTagsAdapter();
         vectorTagsAdapter = new VectorTagsAdapter();
@@ -65,19 +65,13 @@ public class AFragment extends Fragment implements View.OnClickListener {
             }
         });
         addHeaderView();
-        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setIAdapter(adapter);
     }
 
     private void addHeaderView() {
         View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.header_conmunity_list, null);
         mTagCloud = (TagCloudView) headerView.findViewById(R.id.tag_cloud);
-        mTagText = (Button) headerView.findViewById(R.id.tag_text);
-        mTagView = (Button) headerView.findViewById(R.id.tag_text);
-        mTagVector = (Button) headerView.findViewById(R.id.tag_text);
-        mTagText.setOnClickListener(this);
-        mTagView.setOnClickListener(this);
-        mTagVector.setOnClickListener(this);
-        mTagCloud.setAdapter(textTagsAdapter);
+        mTagCloud.setAdapter(vectorTagsAdapter);
         mRecyclerView.addHeaderView(headerView);
     }
 
@@ -94,16 +88,17 @@ public class AFragment extends Fragment implements View.OnClickListener {
     }
 
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tag_text:
-                mTagCloud.setAdapter(textTagsAdapter);
-                break;
-            case R.id.tag_view:
-                mTagCloud.setAdapter(viewTagsAdapter);
-                break;
-            case R.id.tag_vector:
-                mTagCloud.setAdapter(vectorTagsAdapter);
-                break;
-        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onRefresh() {
+        mSwipeContainer.setRefreshing(true);
+        mSwipeContainer.setRefreshing(false);
     }
 }
+

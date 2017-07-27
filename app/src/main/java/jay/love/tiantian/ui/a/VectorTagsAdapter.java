@@ -3,11 +3,11 @@ package jay.love.tiantian.ui.a;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.moxun.tagcloudlib.view.TagsAdapter;
 
@@ -23,8 +23,15 @@ public class VectorTagsAdapter extends TagsAdapter {
     }
 
     @Override
-    public View getView(Context context, int position, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.tag_item_vector, parent, false);
+    public View getView(final Context context, final int position, ViewGroup parent) {
+        View view= LayoutInflater.from(context).inflate(R.layout.tag_item_vector, parent, false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "position="+position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        return  view;
     }
 
     @Override
@@ -34,7 +41,6 @@ public class VectorTagsAdapter extends TagsAdapter {
 
     @Override
     public int getPopularity(int position) {
-        Log.e("","Popularity" + position % 5);
         return position % 5;
     }
 
