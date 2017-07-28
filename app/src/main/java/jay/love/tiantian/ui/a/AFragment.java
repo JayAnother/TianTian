@@ -20,11 +20,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import jay.love.tiantian.R;
 import jay.love.tiantian.listener.OnItemClickListener;
+import jay.love.tiantian.ui.a.contact.AContact;
+import jay.love.tiantian.ui.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AFragment extends Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
+public class AFragment extends BaseFragment<AContact.Presenter> implements AContact.View,View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.main_view)
     IRecyclerView mRecyclerView;
@@ -99,6 +101,11 @@ public class AFragment extends Fragment implements View.OnClickListener, SwipeRe
     public void onRefresh() {
         mSwipeContainer.setRefreshing(true);
         mSwipeContainer.setRefreshing(false);
+    }
+
+    @Override
+    protected APresenter getPresenter() {
+        return new APresenter();
     }
 }
 

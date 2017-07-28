@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Game01"
+        android:text="Chat01"
         android:textAllCaps="false"
         android:textSize="20sp"/>
 
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Game02"
+        android:text="Chat02"
         android:textAllCaps="false"
         android:textSize="20sp"/>
 

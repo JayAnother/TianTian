@@ -56,6 +56,7 @@ public class BFragment extends BaseFragment {
                 startNextActivity(getActivity(),null,null,TuringChatActivity.class);
                 break;
             case R.id.btn02:
+                startNextActivity(getActivity(),null,null,ChatActivity.class);
                 break;
         }
     }
