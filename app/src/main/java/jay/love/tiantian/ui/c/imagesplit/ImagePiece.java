@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.game.imagesplit;
+package jay.love.tiantian.ui.c.imagesplit;
 
 /**
  * Created by Administrator on 2016/3/27.

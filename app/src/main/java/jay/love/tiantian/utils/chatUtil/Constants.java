@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.b.util;
+package jay.love.tiantian.utils.chatUtil;
 
 /**
  * 作者：Rance on 2016/12/20 16:51

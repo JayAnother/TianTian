@@ -12,7 +12,7 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import jay.love.tiantian.ui.b.adapter.holder.ChatAcceptViewHolder;
 import jay.love.tiantian.ui.b.adapter.holder.ChatSendViewHolder;
 import jay.love.tiantian.ui.b.enity.MessageInfo;
-import jay.love.tiantian.ui.b.util.Constants;
+import jay.love.tiantian.utils.chatUtil.Constants;
 
 /**
  * 作者：Rance on 2016/11/29 10:46

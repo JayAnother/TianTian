@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import java.util.List;
 
 import jay.love.tiantian.R;
-import jay.love.tiantian.ui.b.util.EmotionUtils;
+import jay.love.tiantian.utils.chatUtil.EmotionUtils;
 
 /**
  * 作者：Rance on 2016/11/29 10:47

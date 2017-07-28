@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 
 import jay.love.tiantian.R;
-import jay.love.tiantian.ui.b.util.Utils;
+import jay.love.tiantian.utils.chatUtil.Utils;
 
 /**
  * 作者：Rance on 2016/11/29 10:47

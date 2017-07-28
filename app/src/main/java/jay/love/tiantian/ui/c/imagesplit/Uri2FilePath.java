@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.game.imagesplit;
+package jay.love.tiantian.ui.c.imagesplit;
 
 import android.app.Activity;
 import android.database.Cursor;

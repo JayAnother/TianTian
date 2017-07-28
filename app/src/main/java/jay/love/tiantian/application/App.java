@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import jay.love.tiantian.GlobalData;
-import jay.love.tiantian.ui.game.dish.DishManager;
+import jay.love.tiantian.ui.c.dish.DishManager;
 
 /**
  * Created by jay on 2017/1/16.

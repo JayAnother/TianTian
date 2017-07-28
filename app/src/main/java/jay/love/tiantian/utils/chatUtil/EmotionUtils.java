@@ -1,5 +1,5 @@
 
-package jay.love.tiantian.ui.b.util;
+package jay.love.tiantian.utils.chatUtil;
 
 
 import java.util.LinkedHashMap;

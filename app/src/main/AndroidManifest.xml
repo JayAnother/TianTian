@@ -40,20 +40,20 @@
         <activity android:name=".ui.splash.GuideActivity">
         </activity>
         <activity
-            android:name=".ui.game.SimpleGameActivity"
+            android:name=".ui.c.SimpleGameActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_simple_game"
             android:theme="@style/FullscreenTheme">
         </activity>
-        <activity android:name=".ui.game.ComplexGameStartActivity">
+        <activity android:name=".ui.c.ComplexGameStartActivity">
         </activity>
-        <activity android:name=".ui.game.ChoosePicActivity">
+        <activity android:name=".ui.c.ChoosePicActivity">
         </activity>
-        <activity android:name=".ui.game.RankActivity">
+        <activity android:name=".ui.c.RankActivity">
         </activity>
-        <activity android:name=".ui.game.SettingActivity">
+        <activity android:name=".ui.c.SettingActivity">
         </activity>
-        <activity android:name=".ui.game.ComplexGameActivity">
+        <activity android:name=".ui.c.ComplexGameActivity">
         </activity>
         <activity android:name=".ui.b.TuringChatActivity">
         </activity>

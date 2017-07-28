@@ -25,9 +25,9 @@ import org.greenrobot.eventbus.EventBus;
 
 import jay.love.tiantian.R;
 import jay.love.tiantian.ui.b.enity.MessageInfo;
-import jay.love.tiantian.ui.b.util.AudioRecoderUtils;
-import jay.love.tiantian.ui.b.util.PopupWindowFactory;
-import jay.love.tiantian.ui.b.util.Utils;
+import jay.love.tiantian.utils.chatUtil.AudioRecoderUtils;
+import jay.love.tiantian.utils.chatUtil.PopupWindowFactory;
+import jay.love.tiantian.utils.chatUtil.Utils;
 
 /**
  * 作者：Rance on 2016/12/13 15:19

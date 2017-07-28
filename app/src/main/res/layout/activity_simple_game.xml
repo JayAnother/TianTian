@@ -4,7 +4,7 @@
              android:layout_height="match_parent"
              android:background="#0099cc"
              android:id="@+id/fl_container"
-             tools:context="jay.love.tiantian.ui.game.SimpleGameActivity">
+             tools:context="jay.love.tiantian.ui.c.SimpleGameActivity">
 
     <jay.love.tiantian.widget.puzzleview.PuzzleLayout
         android:id="@+id/puzzle_view"

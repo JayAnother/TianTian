@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import jay.love.tiantian.ui.b.util.EmotionUtils;
-import jay.love.tiantian.ui.b.util.GifOpenHelper;
-import jay.love.tiantian.ui.b.util.Utils;
+import jay.love.tiantian.utils.chatUtil.EmotionUtils;
+import jay.love.tiantian.utils.chatUtil.GifOpenHelper;
+import jay.love.tiantian.utils.chatUtil.Utils;
 
 public class GifTextView extends TextView {
     /**

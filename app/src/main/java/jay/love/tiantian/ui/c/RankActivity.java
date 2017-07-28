@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.game;
+package jay.love.tiantian.ui.c;
 
 import android.os.Bundle;
 import android.view.View;

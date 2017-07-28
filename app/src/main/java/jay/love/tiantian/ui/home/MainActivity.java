@@ -31,7 +31,7 @@ import jay.love.tiantian.ui.a.AFragment;
 import jay.love.tiantian.ui.b.BFragment;
 import jay.love.tiantian.ui.base.BaseActivity;
 import jay.love.tiantian.ui.d.DFragment;
-import jay.love.tiantian.ui.game.GameListFragment;
+import jay.love.tiantian.ui.c.GameListFragment;
 import jay.love.tiantian.utils.AnimationUtil;
 
 

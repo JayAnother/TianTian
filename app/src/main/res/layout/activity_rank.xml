@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jay.love.tiantian.ui.game.RankActivity">
+    tools:context="jay.love.tiantian.ui.c.RankActivity">
     <RelativeLayout
         android:id="@+id/rl_toolbar"
         android:layout_width="match_parent"

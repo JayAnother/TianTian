@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import jay.love.tiantian.R;
 import jay.love.tiantian.ui.b.enity.MessageInfo;
-import jay.love.tiantian.ui.b.util.Constants;
+import jay.love.tiantian.utils.chatUtil.Constants;
 
 /**
  * 作者：Rance on 2016/12/13 16:01

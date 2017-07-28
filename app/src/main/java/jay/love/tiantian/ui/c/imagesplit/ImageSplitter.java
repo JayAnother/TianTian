@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.game.imagesplit;
+package jay.love.tiantian.ui.c.imagesplit;
 
 /**
  * Created by Administrator on 2016/3/27.
@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jay.love.tiantian.ui.game.dish.DishManager;
+import jay.love.tiantian.ui.c.dish.DishManager;
 
 
 public class ImageSplitter {

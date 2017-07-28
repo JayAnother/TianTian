@@ -20,9 +20,9 @@ import butterknife.ButterKnife;
 import jay.love.tiantian.R;
 import jay.love.tiantian.ui.b.adapter.EmotionGridViewAdapter;
 import jay.love.tiantian.ui.b.adapter.EmotionPagerAdapter;
-import jay.love.tiantian.ui.b.util.EmotionUtils;
-import jay.love.tiantian.ui.b.util.GlobalOnItemClickManagerUtils;
-import jay.love.tiantian.ui.b.util.Utils;
+import jay.love.tiantian.utils.chatUtil.EmotionUtils;
+import jay.love.tiantian.utils.chatUtil.GlobalOnItemClickManagerUtils;
+import jay.love.tiantian.utils.chatUtil.Utils;
 import jay.love.tiantian.widget.IndicatorView;
 
 /**

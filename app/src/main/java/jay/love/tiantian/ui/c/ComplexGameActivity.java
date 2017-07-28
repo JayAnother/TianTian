@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.game;
+package jay.love.tiantian.ui.c;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -33,10 +33,10 @@ import jay.love.tiantian.event.DishManagerInitFinishEvent;
 import jay.love.tiantian.event.GameSuccessEvent;
 import jay.love.tiantian.event.PieceMoveSuccessEvent;
 import jay.love.tiantian.event.TimeEvent;
-import jay.love.tiantian.ui.game.dish.DishManager;
-import jay.love.tiantian.ui.game.dish.DragImageView;
-import jay.love.tiantian.ui.game.imagesplit.ImagePiece;
-import jay.love.tiantian.ui.game.imagesplit.ImageSplitter;
+import jay.love.tiantian.ui.c.dish.DishManager;
+import jay.love.tiantian.ui.c.dish.DragImageView;
+import jay.love.tiantian.ui.c.imagesplit.ImagePiece;
+import jay.love.tiantian.ui.c.imagesplit.ImageSplitter;
 import jay.love.tiantian.utils.BitmapUtils;
 import jay.love.tiantian.utils.DensityUtil;
 import jay.love.tiantian.utils.GameTimer;

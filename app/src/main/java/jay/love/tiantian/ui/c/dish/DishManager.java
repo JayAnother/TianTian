@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.game.dish;
+package jay.love.tiantian.ui.c.dish;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

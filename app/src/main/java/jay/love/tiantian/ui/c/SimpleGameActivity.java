@@ -1,4 +1,4 @@
-package jay.love.tiantian.ui.game;
+package jay.love.tiantian.ui.c;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
