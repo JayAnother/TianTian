@@ -61,6 +61,8 @@
         </activity>
         <activity android:name=".ui.b.FullImageActivity">
         </activity>
+        <activity android:name=".ui.c.generalgame.GeneralGameActivity">
+        </activity>
     </application>
 
 </manifest>

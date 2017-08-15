@@ -14,19 +14,22 @@ import butterknife.OnClick;
 import jay.love.tiantian.R;
 import jay.love.tiantian.ui.base.BaseFragment;
 import jay.love.tiantian.ui.base.BasePresenter;
+import jay.love.tiantian.ui.c.generalgame.GeneralGameActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GameListFragment extends BaseFragment {
+public class CFragment extends BaseFragment {
 
 
     @BindView(R.id.btn01)
     Button mBtn01;
     @BindView(R.id.btn02)
     Button mBtn02;
+    @BindView(R.id.btn03)
+    Button mBtn03;
 
-    public GameListFragment() {
+    public CFragment() {
         // Required empty public constructor
     }
 
@@ -41,16 +44,19 @@ public class GameListFragment extends BaseFragment {
     }
 
     public static Fragment newInstance() {
-        return new GameListFragment();
+        return new CFragment();
     }
 
-    @OnClick({R.id.btn01, R.id.btn02})
+    @OnClick({R.id.btn01, R.id.btn02, R.id.btn03})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn01:
                 startNextActivity(getActivity(),null,null,SimpleGameActivity.class);
                 break;
             case R.id.btn02:
+                startNextActivity(getActivity(),null,null,GeneralGameActivity.class);
+                break;
+            case R.id.btn03:
                 startNextActivity(getActivity(),null,null,ComplexGameStartActivity.class);
                 break;
         }
